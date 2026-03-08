@@ -148,7 +148,7 @@ export default function Home() {
                   </div>
                   <div className="h-px bg-[#D4AF37]"></div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-[#0A1128] mb-2">3 Years</div>
+                    <div className="text-4xl font-bold text-[#0A1128] mb-2">3 months - 1 year</div>
                     <p className="text-[#0A1128] font-semibold">Typical investment period</p>
                   </div>
                 </div>
