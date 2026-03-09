@@ -22,6 +22,9 @@ export default function Home() {
             <a href="#assets" className="text-[#0A1128] hover:text-[#D4AF37] transition">
               Assets
             </a>
+            <a href="/contact" className="text-[#D4AF37] font-semibold hover:text-[#0A1128] transition">
+              Contact
+            </a>
           </div>
         </div>
       </nav>
@@ -313,9 +316,11 @@ export default function Home() {
             Be part of the future of alternative investments. Access luxury assets 
             with transparency, security, and institutional-grade infrastructure.
           </p>
-          <Button className="bg-[#D4AF37] text-[#0A1128] hover:bg-[#F8F1E9] px-10 py-6 text-lg font-bold">
-            Get Started <ArrowRight className="ml-2" size={20} />
-          </Button>
+          <a href="/contact">
+            <Button className="bg-[#D4AF37] text-[#0A1128] hover:bg-[#F8F1E9] px-10 py-6 text-lg font-bold">
+              Get Started <ArrowRight className="ml-2" size={20} />
+            </Button>
+          </a>
         </div>
       </section>
 
