@@ -9,7 +9,7 @@ export default function Home() {
       <nav className="fixed top-0 w-full bg-[#F8F1E9] border-b-2 border-[#D4AF37] z-50">
         <div className="container flex justify-between items-center py-4">
           <div className="flex items-center gap-2">
-            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663411014546/3VU2yRwqfwuDCwj6AyQWr5/autotoken_mark_only_d3e9278d.PNG" alt="autotoken.me logo" className="w-12 h-12 object-contain" />
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663411014546/3VU2yRwqfwuDCwj6AyQWr5/autotoken_mark_only_d3e9278d.PNG" alt="autotoken.me logo" className="w-16 h-16 object-contain" />
             <h1 className="text-2xl font-bold text-[#0A1128]">autotoken.me</h1>
           </div>
           <div className="hidden md:flex gap-8">
@@ -155,14 +155,14 @@ export default function Home() {
           <div className="mt-16 text-center">
             <h3 className="text-3xl font-bold mb-6 text-[#D4AF37]">The Trillion-Dollar Opportunity</h3>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
+              <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8" style={{backgroundColor: '#c17d2f'}}>
                 <div className="text-5xl font-bold text-[#D4AF37] mb-2">$11-30T</div>
-                <p className="text-[#F8F1E9] font-semibold mb-2">By 2030</p>
+                <p className="text-[#F8F1E9] font-semibold mb-2" style={{color: '#fffaf5'}}>By 2030</p>
                 <p className="text-[#F8F1E9] opacity-70 text-sm">
                   Ark Invest and BCG project tokenized assets will reach $11-30 trillion by 2030, representing nearly 10% of global GDP.
                 </p>
               </div>
-              <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
+              <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8" style={{backgroundColor: '#a17645'}}>
                 <div className="text-5xl font-bold text-[#D4AF37] mb-2">100x</div>
                 <p className="text-[#F8F1E9] font-semibold mb-2">Growth Potential</p>
                 <p className="text-[#F8F1E9] opacity-70 text-sm">
