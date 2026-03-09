@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import { trpc } from '@/lib/trpc';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,13 +14,7 @@ export default function Contact() {
     message: '',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const inquiryTypes = [
-    { value: 'investor', label: 'Investor Inquiry', description: 'Learn about investment opportunities' },
-    { value: 'partnership', label: 'Partnership', description: 'Explore business partnerships' },
-    { value: 'media', label: 'Media & Press', description: 'Media inquiries and press releases' },
-  ];
+  const submitMutation = trpc.contact.submit.useMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -31,10 +26,17 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      await submitMutation.mutateAsync({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || undefined,
+        company: formData.company || undefined,
+        inquiryType: formData.inquiryType as 'investor' | 'partnership' | 'media',
+        message: formData.message,
+      });
+
       toast.success('Thank you for your inquiry! We will be in touch shortly.');
       setFormData({
         name: '',
@@ -44,8 +46,10 @@ export default function Contact() {
         company: '',
         message: '',
       });
-      setIsSubmitting(false);
-    }, 1000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('Failed to submit form. Please try again.');
+    }
   };
 
   return (
@@ -124,7 +128,11 @@ export default function Contact() {
                 What is your inquiry about?
               </label>
               <div className="grid md:grid-cols-3 gap-4">
-                {inquiryTypes.map((type) => (
+                {[
+                  { value: 'investor', label: 'Investor Inquiry', description: 'Learn about investment opportunities' },
+                  { value: 'partnership', label: 'Partnership', description: 'Explore business partnerships' },
+                  { value: 'media', label: 'Media & Press', description: 'Media inquiries and press releases' },
+                ].map((type) => (
                   <label
                     key={type.value}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition ${
@@ -230,11 +238,11 @@ export default function Contact() {
               <div className="flex gap-4">
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={submitMutation.isPending}
                   className="bg-[#0A1128] text-[#F8F1E9] hover:bg-[#D4AF37] hover:text-[#0A1128] px-8 py-3 text-lg font-semibold flex items-center gap-2"
                 >
                   <Send size={20} />
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {submitMutation.isPending ? 'Sending...' : 'Send Message'}
                 </Button>
                 <Button
                   type="button"

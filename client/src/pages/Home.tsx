@@ -1,8 +1,13 @@
 import { ArrowRight, TrendingUp, Lock, Globe } from 'lucide-react';
+import { useAuth } from '@/_core/hooks/useAuth';
 import FlipCard from '@/components/FlipCard';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   return (
     <div className="min-h-screen bg-[#F8F1E9]">
       {/* Navigation */}
