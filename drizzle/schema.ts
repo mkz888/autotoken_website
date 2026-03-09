@@ -33,8 +33,23 @@ export const contactSubmissions = mysqlTable("contactSubmissions", {
   company: varchar("company", { length: 255 }),
   inquiryType: mysqlEnum("inquiryType", ["investor", "partnership", "media"]).notNull(),
   message: text("message").notNull(),
+  status: mysqlEnum("status", ["new", "contacted", "qualified", "negotiating", "converted", "rejected"]).default("new").notNull(),
+  adminNotes: text("adminNotes"),
+  lastContactedAt: timestamp("lastContactedAt"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
 
 export type ContactSubmission = typeof contactSubmissions.$inferSelect;
 export type InsertContactSubmission = typeof contactSubmissions.$inferInsert;
+
+export const communicationLog = mysqlTable("communicationLog", {
+  id: int("id").autoincrement().primaryKey(),
+  submissionId: int("submissionId").notNull(),
+  type: mysqlEnum("type", ["email", "call", "meeting", "note"]).notNull(),
+  content: text("content").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type CommunicationLog = typeof communicationLog.$inferSelect;
+export type InsertCommunicationLog = typeof communicationLog.$inferInsert;

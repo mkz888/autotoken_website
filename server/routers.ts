@@ -1,10 +1,11 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
+import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { createContactSubmission } from "./db";
+import { createContactSubmission, getAllSubmissions, getSubmissionById, updateSubmissionStatus, addCommunicationLog, getCommunicationLogs } from "./db";
 import { notifyOwner } from "./_core/notification";
+import { TRPCError } from "@trpc/server";
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -59,6 +60,66 @@ export const appRouter = router({
           console.error("[Contact] Submission failed:", error);
           throw error;
         }
+      }),
+  }),
+
+  admin: router({
+    submissions: protectedProcedure
+      .query(async ({ ctx }) => {
+        if (ctx.user?.role !== "admin") {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Admin access required" });
+        }
+        return await getAllSubmissions();
+      }),
+
+    getSubmission: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ ctx, input }) => {
+        if (ctx.user?.role !== "admin") {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Admin access required" });
+        }
+        return await getSubmissionById(input.id);
+      }),
+
+    updateStatus: protectedProcedure
+      .input(
+        z.object({
+          id: z.number(),
+          status: z.enum(["new", "contacted", "qualified", "negotiating", "converted", "rejected"]),
+          notes: z.string().optional(),
+        })
+      )
+      .mutation(async ({ ctx, input }) => {
+        if (ctx.user?.role !== "admin") {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Admin access required" });
+        }
+        await updateSubmissionStatus(input.id, input.status, input.notes);
+        return { success: true };
+      }),
+
+    addNote: protectedProcedure
+      .input(
+        z.object({
+          submissionId: z.number(),
+          type: z.enum(["email", "call", "meeting", "note"]),
+          content: z.string().min(1),
+        })
+      )
+      .mutation(async ({ ctx, input }) => {
+        if (ctx.user?.role !== "admin") {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Admin access required" });
+        }
+        await addCommunicationLog(input);
+        return { success: true };
+      }),
+
+    getCommunicationHistory: protectedProcedure
+      .input(z.object({ submissionId: z.number() }))
+      .query(async ({ ctx, input }) => {
+        if (ctx.user?.role !== "admin") {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Admin access required" });
+        }
+        return await getCommunicationLogs(input.submissionId);
       }),
   }),
 });
