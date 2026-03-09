@@ -9,9 +9,7 @@ export default function Home() {
       <nav className="fixed top-0 w-full bg-[#F8F1E9] border-b-2 border-[#D4AF37] z-50">
         <div className="container flex justify-between items-center py-4">
           <div className="flex items-center gap-2">
-            <div className="w-12 h-12 bg-[#0A1128] rounded-full flex items-center justify-center">
-              <span className="text-[#D4AF37] font-bold text-lg">AT</span>
-            </div>
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663411014546/3VU2yRwqfwuDCwj6AyQWr5/autotoken_mark_only_d3e9278d.PNG" alt="autotoken.me logo" className="w-12 h-12 object-contain" />
             <h1 className="text-2xl font-bold text-[#0A1128]">autotoken.me</h1>
           </div>
           <div className="hidden md:flex gap-8">
@@ -79,19 +77,19 @@ export default function Home() {
             <h3 className="text-3xl font-bold mb-6 text-[#D4AF37]">Institutional Momentum in the West</h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-xl font-bold mb-3 text-[#F8F1E9]">BlackRock's Commitment</h4>
+                <h4 className="text-xl font-bold mb-3 text-[#F8F1E9]" style={{color: '#b8966f'}}>BlackRock's Commitment</h4>
                 <ul className="space-y-2 text-[#F8F1E9] opacity-80">
-                  <li>• <strong>$2.5 billion</strong> in tokenized Treasuries via BUIDL fund</li>
-                  <li>• Actively building infrastructure for on-chain asset management</li>
-                  <li>• Signaling institutional confidence in tokenized markets</li>
+                  <li style={{color: '#70604c'}}>• <strong style={{color: '#70604c'}}>$2.5 billion</strong> in tokenized Treasuries via BUIDL fund</li>
+                  <li style={{color: '#b98850'}}>• Actively building infrastructure for on-chain asset management</li>
+                  <li style={{color: '#9d6c34'}}>• Signaling institutional confidence in tokenized markets</li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-xl font-bold mb-3 text-[#F8F1E9]">JPMorgan's Blockchain Division</h4>
+                <h4 className="text-xl font-bold mb-3 text-[#F8F1E9]" style={{color: '#cea678'}}>JPMorgan's Blockchain Division</h4>
                 <ul className="space-y-2 text-[#F8F1E9] opacity-80">
-                  <li>• Launched multiple blockchain products for institutional clients</li>
-                  <li>• Developing settlement infrastructure for tokenized assets</li>
-                  <li>• Pioneering regulatory compliance frameworks</li>
+                  <li style={{color: '#ac8e6c'}}>• Launched multiple blockchain products for institutional clients</li>
+                  <li style={{color: '#a78e72'}}>• Developing settlement infrastructure for tokenized assets</li>
+                  <li style={{color: '#a07f5a'}}>• Pioneering regulatory compliance frameworks</li>
                 </ul>
               </div>
             </div>
@@ -101,22 +99,22 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
               <div className="text-4xl font-bold text-[#D4AF37] mb-2">$35B+</div>
-              <p className="text-[#F8F1E9] font-semibold mb-3">Current Market Size</p>
-              <p className="text-[#F8F1E9] opacity-70 text-sm">
+              <p className="text-[#F8F1E9] font-semibold mb-3" style={{color: '#4f3517'}}>Current Market Size</p>
+              <p className="text-[#F8F1E9] opacity-70 text-sm" style={{color: '#34322d'}}>
                 Tokenized RWAs reached over $35 billion by November 2025, up from $5 billion in 2022—a 600% increase in just 3 years.
               </p>
             </div>
             <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
               <div className="text-4xl font-bold text-[#D4AF37] mb-2">224%</div>
-              <p className="text-[#F8F1E9] font-semibold mb-3">Sector Growth (2024-2025)</p>
-              <p className="text-[#F8F1E9] opacity-70 text-sm">
+              <p className="text-[#F8F1E9] font-semibold mb-3" style={{color: '#24180a'}}>Sector Growth (2024-2025)</p>
+              <p className="text-[#F8F1E9] opacity-70 text-sm" style={{color: '#6a4a25'}}>
                 The tokenization sector grew 224% year-over-year, evolving from experiments into the programmable foundation of global capital markets.
               </p>
             </div>
             <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
               <div className="text-4xl font-bold text-[#D4AF37] mb-2">539%</div>
-              <p className="text-[#F8F1E9] font-semibold mb-3">Tokenized Treasury Growth</p>
-              <p className="text-[#F8F1E9] opacity-70 text-sm">
+              <p className="text-[#F8F1E9] font-semibold mb-3" style={{color: '#170d02'}}>Tokenized Treasury Growth</p>
+              <p className="text-[#F8F1E9] opacity-70 text-sm" style={{color: '#180c0c'}}>
                 Tokenized Treasury market expanded 539% from January 2024 to April 2025, driven by institutional adoption.
               </p>
             </div>
