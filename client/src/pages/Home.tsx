@@ -67,36 +67,110 @@ export default function Home() {
       {/* The Tokenization Era Section */}
       <section id="era" className="py-20 bg-[#0A1128] text-[#F8F1E9]">
         <div className="container max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
             The World is Embracing Tokenization
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <p className="text-center text-[#D4AF37] text-xl font-semibold mb-12">
+            This is the moment the industry begins. Now is the time to lead.
+          </p>
+          
+          {/* The Institutional Momentum */}
+          <div className="mb-16 bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-10">
+            <h3 className="text-3xl font-bold mb-6 text-[#D4AF37]">Institutional Momentum in the West</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-bold mb-3 text-[#F8F1E9]">BlackRock's Commitment</h4>
+                <ul className="space-y-2 text-[#F8F1E9] opacity-80">
+                  <li>• <strong>$2.5 billion</strong> in tokenized Treasuries via BUIDL fund</li>
+                  <li>• Actively building infrastructure for on-chain asset management</li>
+                  <li>• Signaling institutional confidence in tokenized markets</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold mb-3 text-[#F8F1E9]">JPMorgan's Blockchain Division</h4>
+                <ul className="space-y-2 text-[#F8F1E9] opacity-80">
+                  <li>• Launched multiple blockchain products for institutional clients</li>
+                  <li>• Developing settlement infrastructure for tokenized assets</li>
+                  <li>• Pioneering regulatory compliance frameworks</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Market Explosion */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
-              <Globe size={40} className="text-[#D4AF37] mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Global Adoption</h3>
-              <p className="text-[#F8F1E9] opacity-80 leading-relaxed">
-                Major institutions including BlackRock, JPMorgan Chase, and Goldman Sachs 
-                are actively developing tokenized asset markets. The infrastructure is 
-                being built right now.
+              <div className="text-4xl font-bold text-[#D4AF37] mb-2">$35B+</div>
+              <p className="text-[#F8F1E9] font-semibold mb-3">Current Market Size</p>
+              <p className="text-[#F8F1E9] opacity-70 text-sm">
+                Tokenized RWAs reached over $35 billion by November 2025, up from $5 billion in 2022—a 600% increase in just 3 years.
               </p>
             </div>
             <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
-              <Lock size={40} className="text-[#D4AF37] mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Regulated Framework</h3>
-              <p className="text-[#F8F1E9] opacity-80 leading-relaxed">
-                Dubai's Virtual Assets Regulatory Authority (VARA) has created the world's 
-                first comprehensive framework for asset-backed tokens. We operate within 
-                this progressive regulatory environment.
+              <div className="text-4xl font-bold text-[#D4AF37] mb-2">224%</div>
+              <p className="text-[#F8F1E9] font-semibold mb-3">Sector Growth (2024-2025)</p>
+              <p className="text-[#F8F1E9] opacity-70 text-sm">
+                The tokenization sector grew 224% year-over-year, evolving from experiments into the programmable foundation of global capital markets.
               </p>
             </div>
             <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
-              <TrendingUp size={40} className="text-[#D4AF37] mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Market Growth</h3>
-              <p className="text-[#F8F1E9] opacity-80 leading-relaxed">
-                Tokenized assets are projected to reach $16 trillion by 2030. Luxury 
-                collectibles represent a multi-billion dollar alternative asset class 
-                with limited access.
+              <div className="text-4xl font-bold text-[#D4AF37] mb-2">539%</div>
+              <p className="text-[#F8F1E9] font-semibold mb-3">Tokenized Treasury Growth</p>
+              <p className="text-[#F8F1E9] opacity-70 text-sm">
+                Tokenized Treasury market expanded 539% from January 2024 to April 2025, driven by institutional adoption.
               </p>
+            </div>
+          </div>
+
+          {/* The Critical Moment */}
+          <div className="bg-gradient-to-r from-[#D4AF37] to-[#E8C547] rounded-lg p-10 text-[#0A1128]">
+            <h3 className="text-3xl font-bold mb-4">Why Now is the Critical Moment</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-lg font-bold mb-3">Regulatory Clarity Emerging</h4>
+                <p className="opacity-90 leading-relaxed">
+                  The U.S., EU, and Asia are establishing clear frameworks for tokenized assets. Dubai's VARA provides the gold standard. The regulatory foundation is being laid right now.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-bold mb-3">Infrastructure is Ready</h4>
+                <p className="opacity-90 leading-relaxed">
+                  Blockchain networks are production-ready. Settlement is faster and cheaper than traditional systems. The technical barriers have been solved.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-bold mb-3">Institutional Capital is Moving</h4>
+                <p className="opacity-90 leading-relaxed">
+                  Trillions in institutional capital are waiting for compliant, transparent tokenized assets. Early movers will capture disproportionate market share.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-bold mb-3">Alternative Assets are Underserved</h4>
+                <p className="opacity-90 leading-relaxed">
+                  Luxury collectibles and vehicles represent $2+ trillion in value with fragmented ownership. Tokenization unlocks this market for institutional investors.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Future Projections */}
+          <div className="mt-16 text-center">
+            <h3 className="text-3xl font-bold mb-6 text-[#D4AF37]">The Trillion-Dollar Opportunity</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
+                <div className="text-5xl font-bold text-[#D4AF37] mb-2">$11-30T</div>
+                <p className="text-[#F8F1E9] font-semibold mb-2">By 2030</p>
+                <p className="text-[#F8F1E9] opacity-70 text-sm">
+                  Ark Invest and BCG project tokenized assets will reach $11-30 trillion by 2030, representing nearly 10% of global GDP.
+                </p>
+              </div>
+              <div className="bg-[#F8F1E9] bg-opacity-5 border border-[#D4AF37] border-opacity-30 rounded-lg p-8">
+                <div className="text-5xl font-bold text-[#D4AF37] mb-2">100x</div>
+                <p className="text-[#F8F1E9] font-semibold mb-2">Growth Potential</p>
+                <p className="text-[#F8F1E9] opacity-70 text-sm">
+                  From $35 billion today to $1+ trillion in the next 5 years. Early participants will see exponential returns.
+                </p>
+              </div>
             </div>
           </div>
         </div>
