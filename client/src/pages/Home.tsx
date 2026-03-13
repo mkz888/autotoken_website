@@ -2,6 +2,8 @@ import { ArrowRight, TrendingUp, Lock, Globe } from 'lucide-react';
 import { useAuth } from '@/_core/hooks/useAuth';
 import FlipCard from '@/components/FlipCard';
 import { Button } from '@/components/ui/button';
+import { getLoginUrl } from '@/const';
+import { useLocation } from 'wouter';
 
 export default function Home() {
   // The userAuth hooks provides authentication state
@@ -17,19 +19,46 @@ export default function Home() {
             <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663411014546/3VU2yRwqfwuDCwj6AyQWr5/autotoken_mark_only_d3e9278d.PNG" alt="autotoken.me logo" className="w-16 h-16 object-contain" />
             <h1 className="text-2xl font-bold text-[#0A1128]">autotoken.me</h1>
           </div>
-          <div className="hidden md:flex gap-8">
-            <a href="#era" className="text-[#0A1128] hover:text-[#D4AF37] transition">
-              The Era
-            </a>
-            <a href="#concepts" className="text-[#0A1128] hover:text-[#D4AF37] transition">
-              Concepts
-            </a>
-            <a href="#assets" className="text-[#0A1128] hover:text-[#D4AF37] transition">
-              Assets
-            </a>
-            <a href="/contact" className="text-[#D4AF37] font-semibold hover:text-[#0A1128] transition">
-              Contact
-            </a>
+          <div className="flex items-center gap-8">
+            <div className="hidden md:flex gap-8">
+              <a href="#era" className="text-[#0A1128] hover:text-[#D4AF37] transition">
+                The Era
+              </a>
+              <a href="#concepts" className="text-[#0A1128] hover:text-[#D4AF37] transition">
+                Concepts
+              </a>
+              <a href="#assets" className="text-[#0A1128] hover:text-[#D4AF37] transition">
+                Assets
+              </a>
+              <a href="/contact" className="text-[#D4AF37] font-semibold hover:text-[#0A1128] transition">
+                Contact
+              </a>
+            </div>
+            <div className="flex gap-4 items-center">
+              {user?.role === 'admin' && (
+                <a href="/admin" className="text-[#D4AF37] font-semibold hover:text-[#0A1128] transition">
+                  Admin
+                </a>
+              )}
+              {isAuthenticated ? (
+                <>
+                  <span className="text-[#0A1128] font-semibold">{user?.name}</span>
+                  <Button 
+                    onClick={() => logout()}
+                    className="bg-[#0A1128] text-[#F8F1E9] hover:bg-[#D4AF37] hover:text-[#0A1128]"
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <Button 
+                  onClick={() => window.location.href = getLoginUrl()}
+                  className="bg-[#D4AF37] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#F8F1E9]"
+                >
+                  Login
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       </nav>
